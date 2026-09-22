@@ -1,17 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ICustomerGroup } from './ICustomerGroup';
 
 @Injectable({
     providedIn: 'root'
 })
 export class CustomerHttpService {
 
-    private url = '/datasets/customers.json';
+    private _url: string = '/datasets/customers.json';
 
-    constructor(private http: HttpClient) { }
+    constructor(private _http: HttpClient) { }
 
-    getCustomers(): Observable<any> {
-        return this.http.get<any>(this.url);
+    getCustomers(): Observable<ICustomerGroup[]> {
+        return this._http.get<ICustomerGroup[]>(this._url);
     }
 }
