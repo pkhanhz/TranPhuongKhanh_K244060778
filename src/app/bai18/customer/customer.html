@@ -1,0 +1,34 @@
+<p>customer works!</p>
+
+<p *ngIf="errMessage" style="color:red;">
+    {{errMessage}}
+</p>
+
+@for (group of customerGroups; track group.CustomerTypeId) {
+<div>
+    <h2>{{group.CustomterTypeName}}</h2>
+
+    <table border="1" style="border-collapse: collapse; text-align: left;">
+        <tr style="background-color: #f2f2f2;">
+            <td>ID</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Age</td>
+            <td>Image</td>
+        </tr>
+
+        @for (c of group.Customers; track c.Id) {
+        <tr>
+            <td>{{c.Id}}</td>
+            <td>{{c.Name}}</td>
+            <td>{{c.Email}}</td>
+            <td>{{c.Age}}</td>
+            <td>
+                <img [src]="c.Image" width="80" height="80">
+            </td>
+        </tr>
+        }
+    </table>
+    <br>
+</div>
+}

@@ -1,0 +1,27 @@
+<p>catalog works!</p>
+
+<div *ngFor="let cate of categories">
+
+    <h2>{{cate.CateName}}</h2>
+
+    <table border="1">
+        <tr>
+            <td>Ma San Pham</td>
+            <td>Ten San Pham</td>
+            <td>Gia San Pham</td>
+            <td>Picture</td>
+        </tr>
+
+        <tr *ngFor="let p of cate.Products">
+            <td>{{p.ProductId}}</td>
+            <td>{{p.ProductName}}</td>
+            <td>{{p.Price}}</td>
+            <td>
+                <img [src]="p.Image" width="80" height="80">
+            </td>
+        </tr>
+    </table>
+
+    <br>
+
+</div>
